@@ -1,48 +1,14 @@
 import styled from 'styled-components'
-import colors from '../utils/colors'
+import colors from '../../utils/colors'
 
-export const Header = styled.div`
-  margin: auto;
-  justify-content: center;
-  text-align: center;
-  background: ${colors.primary};
-  height: 80px;
-
-  h2{
-    color: ${colors.secundary};
-    font-size: 30px;
-    padding-top: 20px;
-  }
-`
-
-export const Container = styled.div`
-  /* max-width: 1200px; */
-  margin: 30px auto;
-  text-align: center;
-  justify-content: center;
-
-  input{
-    width: 80%;
-    border: none;
-    background: ${colors.lightgray};
-    padding: 20px;
-    border-radius: 20px;
-  }
-
-  input::-webkit-input-placeholder{
-    color: ${colors.primary}
-  }  
-`
-
-export const MovieCard = styled.div`
+export const Card = styled.div`
   background: ${colors.lightgray};
-  height: 300px;
+  min-height: 350px;
   width: 80%;
-
   margin: 20px auto;
 
   .image-left img{
-    height: 300px;
+    height: 350px;
     float: left;
   }
 
@@ -84,5 +50,33 @@ export const MovieCard = styled.div`
     margin-left: 20px;
     margin-top: 5px;
     font-weight: bold;
+  }
+
+  .description{
+    margin-left: 20px;
+    text-align: left;
+    margin-left: 250px;
+    padding: 0 10px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  #genre{
+    display: flex;
+    margin-left: 250px;
+    padding: 0 10px;
+    margin-top: 50px;
+  }
+
+  #genre-list{
+    background: white;
+    color: ${colors.primary};
+    border: ${colors.secundary};
+    padding: 10px;
+    height: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: solid 1px ${colors.primary}
   }
 `
