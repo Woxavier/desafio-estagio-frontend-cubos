@@ -14,6 +14,11 @@ export const Container = styled.div`
     border-radius: 20px;
   }
 
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
   input::-webkit-input-placeholder{
     color: ${colors.primary}
   }  

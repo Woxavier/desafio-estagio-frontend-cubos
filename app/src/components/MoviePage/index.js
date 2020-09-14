@@ -2,15 +2,14 @@ import React from 'react'
 import Container from './styles'
 
 
-export default function MoviePage(){
-  const poster = 'https://uauposters.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/3/130620180226-uau-posters-filmes-thor-ragnarok.jpg'
+export default function MoviePage(props){
 
   return(
     <Container>
       <div className="infos-top">
-        <h1>Thor: Ragnarok</h1>
+        <h1>{props.title}</h1>
 
-        <strong>25/10/2017</strong>
+        <strong>{props.date}</strong>
       </div>
 
       <div className="main-content">
@@ -21,8 +20,7 @@ export default function MoviePage(){
 
           <div classname='sinopse'>
             <p>
-              Salve familia Salve familia Salve familia Salve familia Salve familia
-              Salve familia Salve familia Salve familia Salve familia Salve familia Salve familia Salve familia Salve familia
+              {props.overview}
             </p>
           </div>
 
@@ -32,49 +30,45 @@ export default function MoviePage(){
           <div className="infos">
             <div>
               <h3>Situação</h3>
-              <p>Lançado</p>
+              <p>{props.status}</p>
             </div>
 
             <div>
               <h3>Idioma</h3>
-              <p>Inglês</p>
+              <p>{props.language}</p>
             </div>
 
             <div>
               <h3>Duração</h3>
-              <p>2h11min</p>
+              <p>{props.time}</p>
             </div>
 
             <div>
               <h3>Orçamento</h3>
-              <p>$180.000.000,00</p>
+              <p>${props.avenue},00</p>
             </div>
 
             <div>
               <h3>Receita</h3>
-              <p>$853.977.126,00</p>
+              <p>${props.revenue},00</p>
             </div>
 
             <div>
               <h3>Lucro</h3>
-              <p>$673.977.126,00</p>
+              <p>${props.profit},00</p>
             </div>
           </div>
 
           <footer>       
             <div id='genre'>
               <div id='genre-list'>
-                <h4>Comédia</h4>
-              </div>
-
-              <div id='genre-list'>
-                <h4>Ficção cintífica</h4>
-              </div>
+                <h4>{props.children}</h4>
+              </div>                
             </div>
 
             <div className='rank'>
               <div>
-                <p>75%</p>
+                <p>{props.average}%</p>
               </div>
             </div>
           </footer>
@@ -82,7 +76,7 @@ export default function MoviePage(){
 
 
         <div className="content-right">
-          <img src={poster} alt=""/>
+          <img src={props.image} alt=""/>
         </div>
       </div>
     </Container>
