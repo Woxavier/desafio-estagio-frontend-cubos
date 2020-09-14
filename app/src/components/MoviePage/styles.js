@@ -78,15 +78,15 @@ const Container = styled.div`
     margin-top: 50px;
   }
 
-  #genre{
+  /* #genre{
     display: flex;
     text-align: left;
-    /* margin-left: 250px; */
+    margin-left: 250px;
     padding: 0 10px;
     margin-top: 20px;
-  }
+  } */
 
-  #genre-list{
+  /* #genre-list{
     background: white;
     color: ${colors.primary};
     border: ${colors.secundary};
@@ -95,6 +95,10 @@ const Container = styled.div`
     margin-right: 20px;
     border-radius: 10px;
     border: solid 1px ${colors.primary}
+  } */
+
+  .list-genre{
+    display: flex;
   }
 
   .rank {

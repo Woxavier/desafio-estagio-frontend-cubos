@@ -1,7 +1,6 @@
 import React from 'react'
 import Container from './styles'
 
-
 export default function MoviePage(props){
 
   return(
@@ -59,11 +58,9 @@ export default function MoviePage(props){
             </div>
           </div>
 
-          <footer>       
-            <div id='genre'>
-              <div id='genre-list'>
-                <h4>{props.children}</h4>
-              </div>                
+          <footer>
+            <div className='list-genre'>       
+              {props.children}
             </div>
 
             <div className='rank'>

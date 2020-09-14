@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { searchGenre } from '../../api/api'
+import Genres from '../Genres'
 import {Card} from './styles'
 
 
 export default function MovieCard(props){
+
+  const [genres, setGenres] = useState([])
+
+  useEffect(() => {
+    getGenres(props.genre);
+  }, [props.genres])
+
+  const getGenres = ( ids ) => {
+    searchGenre().then(response => {
+      const genresComplete = response.data.genres;
+      let genresNames = [];
+     ids.map(request =>
+        genresComplete.map(consult =>
+          consult.id === request ? genresNames.push(consult.name) : ''
+        )
+      );
+      setGenres(genresNames)
+      console.log(genresNames)
+    })
+  }
+  
   return(
     <Card>
       <div className="image-left">
@@ -24,15 +47,7 @@ export default function MovieCard(props){
           {props.description}
         </div>
 
-        <div id='genre'>
-          <div id='genre-list'>
-            <h4>Comédia</h4>
-          </div>
-
-          <div id='genre-list'>
-            <h4>Ficção cintífica</h4>
-          </div>
-        </div>
+        <Genres genres={genres}/>
     </Card>
   )
 }
