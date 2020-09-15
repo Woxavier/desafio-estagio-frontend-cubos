@@ -1,4 +1,4 @@
-# Desafio Cubos tecnologia :computer:
+# Desafio Cubos Tecnologia :computer:
 
 ### Resolução do desafio para vaga de estágio em desenvolvimento Front-end da Cubos Tecnologia. Consiste em uma aplicação responsiva que consome a [API do The Movies DB](https://www.themoviedb.org/documentation/api). :rocket:
 
