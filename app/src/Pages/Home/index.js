@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { movieImage, listMovies } from '../../api/api'
 import { date } from '../../utils/settings'
@@ -16,7 +16,7 @@ export default function HomePage(){
   const countPages = ( totalItems ) => {
 
     let pages = Math.ceil(totalItems/5)
-    let newArrayPages = new Array
+    let newArrayPages = []
     for(let i = 1; i <= pages; i++){
       newArrayPages.push(i)
       

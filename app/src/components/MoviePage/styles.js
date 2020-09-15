@@ -106,6 +106,91 @@ const Container = styled.div`
   .content-right img{
     max-height: 500px;
   }
+
+  @media(max-width: 800px){
+
+    margin-bottom: 900px;
+    width: 85%;
+
+    .infos-top{
+      font-size: 12px;
+    }
+
+    .main-content{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+      'main'
+      'user';
+    }
+
+    .content-left{
+      width: 85%;
+      padding: 2px;
+      margin: 0 auto;
+    }
+
+    .content-left h2, p, h3{
+      font-size: 15px;
+      /* text-align: center; */
+    }
+
+    .infos{
+      display: block
+    }
+
+    .infos div{
+      margin-top: 10px
+    }
+
+    footer{
+      display: block
+    }
+
+    .list-genre{
+      display: block;
+    }
+
+    .rank {
+      background: ${colors.primary};
+      border-radius: 50%;
+      padding: 5px;
+      width: 110px;
+      display: flex;
+      margin: 30px auto;
+      justify-content: center;
+
+    }
+
+    .rank div{
+      border: 8px solid ${colors.secundary};
+      border-radius: 50%;
+    }
+
+    .rank div p{
+      color: ${colors.secundary};
+      margin-top: 0;
+      padding: 30px 20px;
+      font-size: 30px;
+    }
+
+    .content-right img{
+      width: 100%;
+    }
+
+  }
+
+  @media(max-width: 350px){
+    width: 90%;
+
+    .content-left{
+      width: 90%;
+    }
+
+    .content-right img{
+      width: 96%;
+    }
+  }
 `
 
 export default Container;

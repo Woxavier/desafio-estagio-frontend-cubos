@@ -7,26 +7,21 @@ export const Card = styled.div`
   width: 80%;
   margin: 20px auto;
   display: grid;
-  grid-template-columns: 350px 3fr;
+  grid-template-columns: 350px 1fr;
   grid-template-areas:
-    'user main';
-  display: flex;  
-
-  /* .image-left img{
-    height: 350px;
-    float: left;
-  } */
+    'poster infos';
+  display: flex;
 
   .image-left{
-    grid-area: user;
+    grid-area: poster;
   }
 
   .image-left img{
-    max-height: 450px;
+    height: 450px;
   }
 
   .content-right{
-    grid-area: main;
+    grid-area: infos;
     width: 100%;
   }
 
@@ -60,7 +55,6 @@ export const Card = styled.div`
     padding: 20px 10px;
     color: ${colors.secundary};
     font-size: 22px;
-    /* position: absolute; */
   }
 
   .back-rank{
@@ -80,7 +74,6 @@ export const Card = styled.div`
   .description{
     margin-left: 20px;
     text-align: left;
-    /* margin-left: 250px; */
     padding: 0 10px;
     margin-top: 20px;
     font-size: 18px;
@@ -103,5 +96,64 @@ export const Card = styled.div`
     margin-left: 20px;
     border-radius: 10px;
     border: solid 1px ${colors.primary}
+  }
+  
+  @media(max-width: 800px){
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+    'poster'
+    'infos';
+    display: block;
+    width: 90%;
+
+    header{
+      display: block;
+      background: ${colors.primary};
+      margin-top: -15px;
+      padding-top: 0;
+    }
+
+    header h2{
+      margin-left: 0px;
+    }
+
+    .back-rank{
+      margin-top: 10px;
+      border-radius: 50%;
+      background-color: ${colors.primary};
+      padding: 3px;
+    }
+
+    .description{
+      margin-left: 20px;
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .image-left img{
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    #genre-list{
+      background: white;
+      color: ${colors.primary};
+      border: ${colors.secundary};
+      padding: 3px;
+      margin-right: 0px;
+      border-radius: 5px;
+      border: solid 1px ${colors.primary};  
+      display: block; 
+      height: 13px;
+      margin-bottom: 20px;
+    }
+
+    #genre-list h4{
+      font-size: 12px;
+      margin-top: 0;
+    }    
+
   }
 `

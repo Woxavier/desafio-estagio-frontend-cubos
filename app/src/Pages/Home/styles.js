@@ -63,4 +63,10 @@ export const Container = styled.div`
     border: 5px solid ${colors.secundary};
     border-radius: 50%;
   }
+
+  @media(max-width: 800px){
+    .page-marker{
+      margin: 0 5px;
+    }
+  }
 `

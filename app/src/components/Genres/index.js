@@ -13,12 +13,4 @@ export default function Genres(props = []){
       })}
     </Container>
   )
-
-  // return (
-  //   <Container>
-  //     <div id='genre-list'>
-  //       <h4>{props.genre}</h4>
-  //     </div>
-  //   </Container>
-  // )
 }

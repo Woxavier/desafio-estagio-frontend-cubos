@@ -4,16 +4,20 @@ import MoviePage from '../../components/MoviePage'
 import Container from './styles'
 import {infosMovie, movieImage} from '../../api/api'
 import Genres from '../../components/Genres'
+import api_key from '../../api/api'
 import { date, languages, statusMovie } from '../../utils/settings'
-
-
+import Axios from 'axios'
 
 export default function Movies(props){
 
 
   const [movieInfos, setMovieInfos] = useState([]);
   const [genresMovies, setGenreMovies] = useState([]);
+  const [trailer, setTrailer] = useState()  
   
+  function searchTrailer(id){
+    return Axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api_key}&language=pt-br`)
+  }
 
   useEffect(()=>{
     infosMovie(props.match.params.id)
@@ -21,6 +25,11 @@ export default function Movies(props){
         const data = response.data
         setMovieInfos(data)
         setGenreMovies(listMovies(data.genres))
+        searchTrailer(props.match.params.id).then(response => {
+          if(response.data.results[0]){
+            setTrailer(response.data.results[0].key)
+          }  
+        })
       })
   }, [movieInfos])
 
@@ -54,6 +63,15 @@ export default function Movies(props){
         
         <Genres genres={genresMovies}/>
       </MoviePage>
+
+      <div className='trailer-container'>
+        {trailer ? 
+        <iframe key={trailer} id="ytplayer" type="text/html" width="100%" height="700px"
+        src={`https://www.youtube.com/embed/${trailer}`}
+        frameborder="0"/>  
+        : 
+        <></>}
+      </div>  
     </Container>
   )
 }
