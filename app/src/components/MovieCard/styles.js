@@ -6,10 +6,28 @@ export const Card = styled.div`
   min-height: 350px;
   width: 80%;
   margin: 20px auto;
+  display: grid;
+  grid-template-columns: 350px 3fr;
+  grid-template-areas:
+    'user main';
+  display: flex;  
 
-  .image-left img{
+  /* .image-left img{
     height: 350px;
     float: left;
+  } */
+
+  .image-left{
+    grid-area: user;
+  }
+
+  .image-left img{
+    max-height: 450px;
+  }
+
+  .content-right{
+    grid-area: main;
+    width: 100%;
   }
 
   header{
@@ -36,14 +54,21 @@ export const Card = styled.div`
     background: ${colors.primary};
     border-radius: 50%;
     border: 5px solid ${colors.secundary};
-    margin-top: -40px;
-    margin-left: 20px;
   }
   
-  .rank h2{
+  .rank p{
     padding: 20px 10px;
     color: ${colors.secundary};
+    font-size: 22px;
     /* position: absolute; */
+  }
+
+  .back-rank{
+    margin-top: -40px;
+    margin-left: 20px;
+    border-radius: 50%;
+    background-color: ${colors.primary};
+    padding: 3px;
   }
 
   .date{
@@ -55,7 +80,7 @@ export const Card = styled.div`
   .description{
     margin-left: 20px;
     text-align: left;
-    margin-left: 250px;
+    /* margin-left: 250px; */
     padding: 0 10px;
     margin-top: 20px;
     font-size: 18px;

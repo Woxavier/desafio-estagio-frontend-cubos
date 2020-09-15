@@ -13,6 +13,10 @@ const HeaderContainer = styled.div`
     font-size: 40px;
     padding-top: 10px;
   }
+
+  a{
+    text-decoration: none;
+  }
 `
 
 export default HeaderContainer

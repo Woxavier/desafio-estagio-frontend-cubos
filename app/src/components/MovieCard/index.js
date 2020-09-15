@@ -22,7 +22,6 @@ export default function MovieCard(props){
         )
       );
       setGenres(genresNames)
-      console.log(genresNames)
     })
   }
   
@@ -32,14 +31,17 @@ export default function MovieCard(props){
         <img src={props.image} alt=""/>
       </div>
 
+      <div className="content-right">
         <header>
           <h2>{props.title}</h2>
         </header>
 
         <div className="date-rank-content">
-          <div className='rank'>
-            <h2>{props.average}%</h2>
-          </div>
+          <div className="back-rank">
+            <div className='rank'>
+              <p>{props.average}%</p>
+            </div>
+          </div>  
           <span className='date'>{props.date}</span>
         </div>
 
@@ -48,6 +50,7 @@ export default function MovieCard(props){
         </div>
 
         <Genres genres={genres}/>
+      </div>  
     </Card>
   )
 }

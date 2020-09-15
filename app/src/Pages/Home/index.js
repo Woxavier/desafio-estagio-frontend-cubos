@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { movieImage, listMovies } from '../../api/api'
-// import Genres from '../../components/Genres'
+import { date } from '../../utils/settings'
 import Header from '../../components/Header'
 import MovieCard from '../../components/MovieCard'
 import { Container } from './styles'
@@ -9,17 +9,37 @@ import { Container } from './styles'
 export default function HomePage(){
 
   const [movies, setMovies] = useState([])
+  const [count, setCount] = useState([]);
+  const [marker, setMarker] = useState(1)
+  let page = 1
 
-  function handleMovies(){
+  const countPages = ( totalItems ) => {
 
-    let input = document.getElementById("search-movies").value
+    let pages = Math.ceil(totalItems/5)
+    let newArrayPages = new Array
+    for(let i = 1; i <= pages; i++){
+      newArrayPages.push(i)
+      
+    }
+    return newArrayPages  
+  }
+
+function handleMovies(){
+
+  let input = document.getElementById("search-movies").value
     listMovies(input)
       .then(response => {
         const data = response.data.results;
-        // console.log(data.genre_ids)
-        setMovies(data)
-      })    
+        setCount(countPages(data.length))
+        setMarker(page)
+        setMovies(data.slice((page - 1) * 5 , page * 5)
+      )})   
   }
+
+function choicePage(number){
+  page = number 
+  handleMovies()
+}  
   
 
   return(
@@ -36,15 +56,13 @@ export default function HomePage(){
           />
         </header>
 
-        {/* <h1>{error}</h1> */}
-
-        {movies.map((movies, index)=>{          
+        {movies.map((movies)=>{          
           return(
             <Link to={`movies/${movies.id}`}>
               <MovieCard
                 title={movies.title} 
                 average={(movies.vote_average * 10)}
-                date={movies.release_date}
+                date={date(movies.release_date)}
                 description={movies.overview}
                 image={movieImage(movies.poster_path)}
                 genre={movies.genre_ids}
@@ -53,8 +71,22 @@ export default function HomePage(){
           )  
         })}
 
+          <div id='select-pages'>  
+            {count.map((counter) =>{
+              return(
+                <div 
+                  className={(count.indexOf(counter) + 1) === marker ? 'page-marked' : 'page-marker'}
+                  onClick={()=> {choicePage(counter)}}
+                  value={counter}                  
+                >
+                  <div className="page-marked-back">                  
+                    <p>{counter}</p>
+                  </div>
+                </div>
+            )})}
+          </div>  
+
       </Container>
-    
     </>
   )
 }

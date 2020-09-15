@@ -26,7 +26,24 @@ export const languages = ( lan ) =>{
   else if (lan === 'zh') {
     return 'Mandarin'
   }
-  else {
-    return lan
+  else if(lan === 'ja'){
+    return 'Japônes'
   }
 }
+
+export const date = (date) => {
+  if(date) {
+    let splitDate = date.split('-');
+    let ajustDate = `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`;
+    return ajustDate
+  }
+}
+
+export const statusMovie = ( movies ) => {
+  if(movies === 'Released'){
+    return 'Lançado'
+  } else {
+    return 'Em breve'
+  }  
+}
+

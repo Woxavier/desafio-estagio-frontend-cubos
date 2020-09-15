@@ -12,7 +12,6 @@ export default function MoviePage(props){
       </div>
 
       <div className="main-content">
-
         <div className="content-left">
           <h2>Sinopse</h2>
           <hr/>
